@@ -1,40 +1,10 @@
 from browser import document as doc, window
 from browser import html
-import header
 import editor
 
-qs_lang,language = header.show()
 
-# other translations
+__BRYTHON__.debug = 1
 
-trans = {
-    'report_bugs':{'en':'Please report bugs in the ',
-                   'es':'Poner los bugs en el ',
-                   'fr':"Signalez les bugs dans l'"},
-    'test_page':{'en':'Tests page','es':'P&aacute;gina de pruebas','fr':'Page de tests'},
-    'run':{'en':'run','es':'ejecutar','fr':'Exécuter'},
-    'clear':{'en':'clear','es':'borrar','fr':'Effacer'}
-}
-
-for key in trans:
-    if key in doc:
-        doc[key].html = trans[key].get(language,trans[key]['en'])
-
-# link to test page
-tplink = doc['test_page']
-if qs_lang:
-    tplink.attrs["href"] += '?lang=%s' %qs_lang
-
-def set_debug(ev):
-    if ev.target.checked:
-        __BRYTHON__.debug = 1
-    else:
-        __BRYTHON__.debug = 0
-
-__BRYTHON__.debug = int(doc['set_debug'].checked)
-
-# bindings
-doc['set_debug'].bind('change',set_debug)
 
 # next functions are defined in editor.py
 doc['show_js'].bind('click',editor.show_js)

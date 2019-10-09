@@ -5,14 +5,6 @@ import javascript
 
 from browser import document as doc, window, alert
 
-# set height of container to 66% of screen
-_height = doc.documentElement.clientHeight
-_s = doc['container']
-_s.style.height = '%spx' % int(_height * 0.66)
-
-doc["legend"].style.top = '%spx' % int(_height * 0.9)
-doc["legend"].style.visibility = "visible"
-
 has_ace = True
 try:
     editor = window.ace.edit("editor")
@@ -88,7 +80,6 @@ info = sys.implementation.version
 version = '%s.%s.%s' % (info.major, info.minor, info.micro)
 if info.releaselevel == "rc":
     version += f"rc{info.serial}"
-doc['version'].text = version
 
 output = ''
 

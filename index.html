@@ -19,42 +19,10 @@
     <script type="text/python3" id="tests_editor" src="tests_editor.py"></script>
     </script>
 
-    <script>
-        function run_js() {
-            var cons = document.getElementById("console")
-            var jscode = cons.value
-            var t0 = (new Date()).getTime()
-            eval(jscode)
-            var t1 = (new Date()).getTime()
-            console.log("Javascript code run in " + (t1 - t0) + " ms")
-        }
-    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
 </head>
 
 <body onload="brython({debug:1})">
-
-    <table id="banner" cellpadding="0" cellspacing="0">
-        <tbody>
-            <tr id="banner_row">
-                <td class="logo">
-                    <a href="https://brython.info/index.html"><img src="./brython_tp.png" class="logo"></a>
-                </td>
-                <td><a href="https://brython.info/tests/console.html?lang=en" class="banner">Console</a></td>
-                <td><a href="https://brython.info/tests/editor.html?lang=en" class="banner selected_header">Editor</a></td>
-                <td><a href="https://brython.info/demo.html?lang=en" class="banner">Demo</a></td>
-                <td><a href="https://brython.info/gallery/gallery_en.html?lang=en" class="banner">Gallery</a></td>
-                <td><a href="https://brython.info/static_doc/en/intro.html?lang=en" class="banner">Documentation</a></td>
-                <td><a href="https://github.com/brython-dev/brython/releases" class="banner" target="_blank">Download</a></td>
-                <td><a href="https://github.com/brython-dev/brython" class="banner" target="_blank">Development</a></td>
-                <td><a href="https://brython.info/groups.html?lang=en" class="banner">Community</a></td>
-            </tr>
-        </tbody>
-    </table>
-
-
-    <div style="text-align:center">Brython version: <span id="version">3.7.5</span>
-    </div>
 
     <div id="container" style="height: 618px;">
         <div id="left-div">
@@ -109,8 +77,7 @@
         <div id="right-div">
             <div style="padding: 3px 3px 3px 3px;">
                 <div style="float:left">
-                    <button id="run">run</button> Debug
-                    <input type="checkbox" id="set_debug" checked="">
+                    <button id="run">run</button>
                 </div>
 
                 <div style="float:right">
@@ -123,18 +90,6 @@
             </div>
         </div>
 
-        <div style="float:left;margin-top:50px">
-            <a href="https://github.com/brython-dev/brython/issues" title="Please report Bugs on the GitHub Issue Tracker !">
-        Report a bug
-      </a><br>
-            <a href="https://brython.info/tests/index.html?lang=en" id="test_page">Tests page</a><br>
-            <a href="https://brython.info/tests/unittests/index.html">
-        CPython tests
-      </a><br>
-            <div id="legend" style="top: 843px; visibility: visible;">
-                Python code editor uses <a href="https://ace.c9.io/" target="_blank">Ace</a>.
-            </div>
-        </div>
 
     </div>
 </body>
