@@ -3,156 +3,140 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
 
-  <title>Brython</title>
-  <link rel="stylesheet" href="./doc_brython.css">
-  <link rel="stylesheet" type="text/css" href="./css">
-  <link rel="stylesheet" href="./console.css">
+    <title>Brython</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/console.css">
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" type="text/javascript"
-    charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
 
-  <script type="text/python3" id="tests_editor" src="tests_editor.py">
-</script>
+    <script type="text/python3" id="tests_editor" src="tests_editor.py"></script>
+    </script>
 
-  <script>
-    function run_js() {
-      var cons = document.getElementById("console")
-      var jscode = cons.value
-      var t0 = (new Date()).getTime()
-      eval(jscode)
-      var t1 = (new Date()).getTime()
-      console.log("Javascript code run in " + (t1 - t0) + " ms")
-    }
-  </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
-  <script src="./mode-python.js"></script>
+    <script>
+        function run_js() {
+            var cons = document.getElementById("console")
+            var jscode = cons.value
+            var t0 = (new Date()).getTime()
+            eval(jscode)
+            var t1 = (new Date()).getTime()
+            console.log("Javascript code run in " + (t1 - t0) + " ms")
+        }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
 </head>
 
 <body onload="brython({debug:1})">
 
-  <table id="banner" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr id="banner_row">
-        <td class="logo"><a href="https://brython.info/index.html"><img src="./brython_tp.png" class="logo"></a></td>
-        <td><a href="https://brython.info/tests/console.html?lang=en" class="banner">Console</a></td>
-        <td><a href="https://brython.info/tests/editor.html?lang=en" class="banner selected_header">Editor</a></td>
-        <td><a href="https://brython.info/demo.html?lang=en" class="banner">Demo</a></td>
-        <td><a href="https://brython.info/gallery/gallery_en.html?lang=en" class="banner">Gallery</a></td>
-        <td><a href="https://brython.info/static_doc/en/intro.html?lang=en" class="banner">Documentation</a></td>
-        <td><a href="https://github.com/brython-dev/brython/releases" class="banner" target="_blank">Download</a></td>
-        <td><a href="https://github.com/brython-dev/brython" class="banner" target="_blank">Development</a></td>
-        <td><a href="https://brython.info/groups.html?lang=en" class="banner">Community</a></td>
-      </tr>
-    </tbody>
-  </table>
+    <table id="banner" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr id="banner_row">
+                <td class="logo">
+                    <a href="https://brython.info/index.html"><img src="./brython_tp.png" class="logo"></a>
+                </td>
+                <td><a href="https://brython.info/tests/console.html?lang=en" class="banner">Console</a></td>
+                <td><a href="https://brython.info/tests/editor.html?lang=en" class="banner selected_header">Editor</a></td>
+                <td><a href="https://brython.info/demo.html?lang=en" class="banner">Demo</a></td>
+                <td><a href="https://brython.info/gallery/gallery_en.html?lang=en" class="banner">Gallery</a></td>
+                <td><a href="https://brython.info/static_doc/en/intro.html?lang=en" class="banner">Documentation</a></td>
+                <td><a href="https://github.com/brython-dev/brython/releases" class="banner" target="_blank">Download</a></td>
+                <td><a href="https://github.com/brython-dev/brython" class="banner" target="_blank">Development</a></td>
+                <td><a href="https://brython.info/groups.html?lang=en" class="banner">Community</a></td>
+            </tr>
+        </tbody>
+    </table>
 
 
-  <div style="text-align:center">Brython version: <span id="version">3.7.5</span>
-  </div>
-
-  <div id="container" style="height: 618px;">
-    <div id="left-div">
-      <div style="padding: 3px 3px 3px 3px;">
-        <button id="add_main">Add <b>&lt;div id=main&gt;</b></button>
-
-      </div>
-      <div id="editor" style="width:100%;" class=" ace_editor ace-solarized-light" draggable="false"><textarea
-          class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-          style="opacity: 0; font-size: 1px; height: 1px; width: 1px; top: 28px; left: 123px;"></textarea>
-        <div class="ace_gutter" aria-hidden="true" style="left: 0px; width: 40px;">
-          <div class="ace_layer ace_gutter-layer ace_folding-enabled"
-            style="height: 1e+06px; top: 0px; left: 0px; width: 40px;">
-            <div class="ace_gutter-cell " style="height: 14px; top: 0px;">1<span
-                style="display: inline-block; height: 14px;" class="ace_fold-widget ace_start ace_open"></span></div>
-            <div class="ace_gutter-cell ace_gutter-active-line " style="height: 14px; top: 14px;">2<span
-                style="display: none;"></span></div>
-          </div>
-        </div>
-        <div class="ace_scroller" style="left: 40px; right: 0px; bottom: 0px;">
-          <div class="ace_content" style="top: 0px; left: 0px; width: 816px; height: 646px;">
-            <div class="ace_layer ace_print-margin-layer">
-              <div class="ace_print-margin" style="left: 532px; visibility: visible;"></div>
-            </div>
-            <div class="ace_layer ace_marker-layer">
-              <div class="ace_bracket ace_start ace_br15"
-                style="height: 14px; width: 6.59766px; top: 14px; left: 63.3789px;"></div>
-            </div>
-            <div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 4px; top: 0px; left: 0px;">
-              <div class="ace_line" style="height: 14px; top: 0px;"><span class="ace_keyword">for</span> <span
-                  class="ace_identifier">i</span> <span class="ace_keyword">in</span> <span
-                  class="ace_support ace_function">range</span><span class="ace_paren ace_lparen">(</span><span
-                  class="ace_constant ace_numeric">10</span><span class="ace_paren ace_rparen">)</span><span
-                  class="ace_punctuation">:</span></div>
-              <div class="ace_line" style="height: 14px; top: 14px;"> <span class="ace_keyword">print</span><span
-                  class="ace_paren ace_lparen">(</span><span class="ace_identifier">i</span><span
-                  class="ace_paren ace_rparen">)</span></div>
-            </div>
-            <div class="ace_layer ace_marker-layer"></div>
-            <div class="ace_layer ace_cursor-layer ace_hidden-cursors">
-              <div class="ace_cursor"
-                style="animation-duration: 1000ms; display: block; top: 14px; left: 83px; width: 7px; height: 14px;">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 22px; bottom: 0px;">
-          <div class="ace_scrollbar-inner" style="width: 22px; height: 28px;"></div>
-        </div>
-        <div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 22px; left: 40px; right: 0px;">
-          <div class="ace_scrollbar-inner" style="height: 22px; width: 816px;"></div>
-        </div>
-        <div
-          style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;">
-          <div
-            style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">
-            הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה
-          </div>
-          <div
-            style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">
-            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-          </div>
-        </div>
-      </div>
+    <div style="text-align:center">Brython version: <span id="version">3.7.5</span>
     </div>
 
-    <div id="right-div">
-      <div style="padding: 3px 3px 3px 3px;">
-        <div style="float:left">
-          <button id="run">run</button>
-          Debug<input type="checkbox" id="set_debug" checked="">
+    <div id="container" style="height: 618px;">
+        <div id="left-div">
+            <div style="padding: 3px 3px 3px 3px;">
+                <button id="add_main">Add <b>&lt;div id=main&gt;</b></button>
+
+            </div>
+            <div id="editor" style="width:100%;" class=" ace_editor ace-solarized-light" draggable="false"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; top: 28px; left: 123px;"></textarea>
+                <div class="ace_gutter" aria-hidden="true" style="left: 0px; width: 40px;">
+                    <div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px; top: 0px; left: 0px; width: 40px;">
+                        <div class="ace_gutter-cell " style="height: 14px; top: 0px;">1<span style="display: inline-block; height: 14px;" class="ace_fold-widget ace_start ace_open"></span></div>
+                        <div class="ace_gutter-cell ace_gutter-active-line " style="height: 14px; top: 14px;">2<span style="display: none;"></span></div>
+                    </div>
+                </div>
+                <div class="ace_scroller" style="left: 40px; right: 0px; bottom: 0px;">
+                    <div class="ace_content" style="top: 0px; left: 0px; width: 816px; height: 646px;">
+                        <div class="ace_layer ace_print-margin-layer">
+                            <div class="ace_print-margin" style="left: 532px; visibility: visible;"></div>
+                        </div>
+                        <div class="ace_layer ace_marker-layer">
+                            <div class="ace_bracket ace_start ace_br15" style="height: 14px; width: 6.59766px; top: 14px; left: 63.3789px;"></div>
+                        </div>
+                        <div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 4px; top: 0px; left: 0px;">
+                            <div class="ace_line" style="height: 14px; top: 0px;"><span class="ace_keyword">for</span> <span class="ace_identifier">i</span> <span class="ace_keyword">in</span> <span class="ace_support ace_function">range</span><span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">10</span>
+                                <span class="ace_paren ace_rparen">)</span><span class="ace_punctuation">:</span></div>
+                            <div class="ace_line" style="height: 14px; top: 14px;"> <span class="ace_keyword">print</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">)</span></div>
+                        </div>
+                        <div class="ace_layer ace_marker-layer"></div>
+                        <div class="ace_layer ace_cursor-layer ace_hidden-cursors">
+                            <div class="ace_cursor" style="animation-duration: 1000ms; display: block; top: 14px; left: 83px; width: 7px; height: 14px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 22px; bottom: 0px;">
+                    <div class="ace_scrollbar-inner" style="width: 22px; height: 28px;"></div>
+                </div>
+                <div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 22px; left: 40px; right: 0px;">
+                    <div class="ace_scrollbar-inner" style="height: 22px; width: 816px;"></div>
+                </div>
+                <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;">
+                    <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">
+                        הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה
+                    </div>
+                    <div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">
+                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div style="float:right">
-          <button id="show_console">Python</button>
-          <button id="show_js">Javascript</button>
-        </div>
-      </div>
-      <div style="width:100%;height:100%;">
-        <textarea id="console" autocomplete="off" cols="60"></textarea>
-      </div>
-    </div>
+        <div id="right-div">
+            <div style="padding: 3px 3px 3px 3px;">
+                <div style="float:left">
+                    <button id="run">run</button> Debug
+                    <input type="checkbox" id="set_debug" checked="">
+                </div>
 
-    <div style="float:left;margin-top:50px">
-      <a href="https://github.com/brython-dev/brython/issues" title="Please report Bugs on the GitHub Issue Tracker !">
+                <div style="float:right">
+                    <button id="show_console">Python</button>
+                    <button id="show_js">Javascript</button>
+                </div>
+            </div>
+            <div style="width:100%;height:100%;">
+                <textarea id="console" autocomplete="off" cols="60"></textarea>
+            </div>
+        </div>
+
+        <div style="float:left;margin-top:50px">
+            <a href="https://github.com/brython-dev/brython/issues" title="Please report Bugs on the GitHub Issue Tracker !">
         Report a bug
       </a><br>
-      <a href="https://brython.info/tests/index.html?lang=en" id="test_page">Tests page</a><br>
-      <a href="https://brython.info/tests/unittests/index.html">
+            <a href="https://brython.info/tests/index.html?lang=en" id="test_page">Tests page</a><br>
+            <a href="https://brython.info/tests/unittests/index.html">
         CPython tests
       </a><br>
-      <div id="legend" style="top: 843px; visibility: visible;">
-        Python code editor uses <a href="https://ace.c9.io/" target="_blank">Ace</a>.
-      </div>
-    </div>
+            <div id="legend" style="top: 843px; visibility: visible;">
+                Python code editor uses <a href="https://ace.c9.io/" target="_blank">Ace</a>.
+            </div>
+        </div>
 
-  </div>
+    </div>
 </body>
 
 </html>
