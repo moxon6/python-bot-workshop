@@ -26,7 +26,7 @@ def reset_src():
     editor.scrollToRow(0)
     editor.gotoLine(0)
 
-class cOutput:
+class ConsoleOutput:
     encoding = 'utf-8'
 
     def __init__(self):
@@ -42,17 +42,6 @@ class cOutput:
 
     def __len__(self):
         return len(self.buf)
-
-cOut = cOutput()
-sys.stdout = cOut
-sys.stderr = cOut
-
-info = sys.implementation.version
-version = '%s.%s.%s' % (info.major, info.minor, info.micro)
-if info.releaselevel == "rc":
-    version += f"rc{info.serial}"
-
-output = ''
 
 def show_console(ev):
     doc["console"].value = output
@@ -84,8 +73,20 @@ def show_js(ev):
     src = editor.getValue()
     doc["console"].value = javascript.py2js(src, '__main__')
 
-reset_src()
+def main():
+    consoleOut = ConsoleOutput()
+    sys.stdout = consoleOut
+    sys.stderr = consoleOut
 
-doc['show_js'].bind('click', show_js)
-doc['run'].bind('click',lambda *args: run())
-doc['show_console'].bind('click', show_console)
+    info = sys.implementation.version
+    version = '%s.%s.%s' % (info.major, info.minor, info.micro)
+    if info.releaselevel == "rc":
+        version += f"rc{info.serial}"
+
+    output = ''
+    reset_src()
+    doc['show_js'].bind('click', show_js)
+    doc['run'].bind('click',lambda *args: run())
+    doc['show_console'].bind('click', show_console)
+
+main()
