@@ -32,8 +32,6 @@ if hasattr(window, 'localStorage'):
 else:
     storage = None
 
-if 'set_debug' in doc:
-    __BRYTHON__.debug = int(doc['set_debug'].checked)
 
 def reset_src():
     if storage is not None and "py_src" in storage:
