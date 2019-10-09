@@ -16,7 +16,7 @@ doc["legend"].style.visibility = "visible"
 has_ace = True
 try:
     editor = window.ace.edit("editor")
-    editor.setTheme("ace/theme/solarized_light")
+    editor.setTheme("ace/theme/solarized_dark")
     editor.session.setMode("ace/mode/python")
     editor.focus()
 
