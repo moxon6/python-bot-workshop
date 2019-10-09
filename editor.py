@@ -29,7 +29,7 @@ if storage is not None and constants.LOCAL_STORAGE_KEY in storage:
 else:
     editor.setValue('for i in range(10):\n\tprint(i)')
 
-handlers = Handlers(editor, constants.LOCAL_STORAGE_KEY)
+handlers = Handlers(editor)
 document[constants.JAVASCRIPT_BUTTON_ID].bind('click', handlers.show_js)
 document[constants.RUN_BUTTON_ID].bind('click', lambda *args: handlers.run())
 document[constants.PYTHON_BUTTON_ID].bind('click', handlers.show_console)
