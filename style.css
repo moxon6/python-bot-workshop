@@ -1,11 +1,3 @@
-@charset 'utf-8';
-:root {
-    --main-bg-color: #dae8c0;
-    --header-color: #0f1b07;
-    --selected-header-color: #c6d166;
-    --text-color: #5c821a
-}
-
 * {
     box-sizing: border-box;
 }
@@ -56,9 +48,9 @@ body,
 }
 
 .option-button {
-    background-color: var(--header-color);
-    border-color: var(--header-color);
-    color: var(--selected-header-color);
+    background-color: #0f1b07;
+    border-color: #0f1b07;
+    color: #c6d166;
     border: 1px solid;
     padding: .2em
 }
