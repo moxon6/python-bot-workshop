@@ -4,34 +4,19 @@ import tb as traceback
 import javascript
 
 from browser import document as doc, window, alert
+from browser.local_storage import storage
+from browser import html
 
-has_ace = True
-try:
-    editor = window.ace.edit("editor")
-    editor.setTheme("ace/theme/solarized_dark")
-    editor.session.setMode("ace/mode/python")
-    editor.focus()
+editor = window.ace.edit("editor")
+editor.setTheme("ace/theme/solarized_dark")
+editor.session.setMode("ace/mode/python")
+editor.focus()
 
-    editor.setOptions({
-     'enableLiveAutocompletion': True,
-     'highlightActiveLine': False,
-     'highlightSelectedWord': True
-    })
-except:
-    from browser import html
-    editor = html.TEXTAREA(rows=20, cols=70)
-    doc["editor"] <= editor
-    def get_value(): return editor.value
-    def set_value(x): editor.value = x
-    editor.getValue = get_value
-    editor.setValue = set_value
-    has_ace = False
-
-if hasattr(window, 'localStorage'):
-    from browser.local_storage import storage
-else:
-    storage = None
-
+editor.setOptions({
+    'enableLiveAutocompletion': True,
+    'highlightActiveLine': False,
+    'highlightSelectedWord': True
+})
 
 def reset_src():
     if storage is not None and "py_src" in storage:
@@ -40,13 +25,6 @@ def reset_src():
         editor.setValue('for i in range(10):\n\tprint(i)')
     editor.scrollToRow(0)
     editor.gotoLine(0)
-
-def reset_src_area():
-    if storage and "py_src" in storage:
-        editor.value = storage["py_src"]
-    else:
-        editor.value = 'for i in range(10):\n\tprint(i)'
-
 
 class cOutput:
     encoding = 'utf-8'
@@ -65,14 +43,9 @@ class cOutput:
     def __len__(self):
         return len(self.buf)
 
-if "console" in doc:
-    cOut = cOutput()
-    sys.stdout = cOut
-    sys.stderr = cOut
-
-
-def to_str(xx):
-    return str(xx)
+cOut = cOutput()
+sys.stdout = cOut
+sys.stderr = cOut
 
 info = sys.implementation.version
 version = '%s.%s.%s' % (info.major, info.minor, info.micro)
@@ -84,11 +57,6 @@ output = ''
 def show_console(ev):
     doc["console"].value = output
     doc["console"].cols = 60
-
-# load a Python script
-def load_script(evt):
-    _name = evt.target.value + '?foo=%s' % time.time()
-    editor.setValue(open(_name).read())
 
 # run a script, in global namespace if in_globals is True
 def run(*args):
@@ -116,7 +84,8 @@ def show_js(ev):
     src = editor.getValue()
     doc["console"].value = javascript.py2js(src, '__main__')
 
-if has_ace:
-    reset_src()
-else:
-    reset_src_area()
+reset_src()
+
+doc['show_js'].bind('click', show_js)
+doc['run'].bind('click',lambda *args: run())
+doc['show_console'].bind('click', show_console)
