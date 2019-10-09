@@ -3,56 +3,23 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Brython</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/console.css">
+    <title>Editor Demo</title>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/python3" id="tests_editor" src="tests_editor.py"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
+    <script type="text/python3" id="tests_editor" src="tests_editor.py"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/console.css">
 </head>
 
 <body onload="brython({debug:1})">
 
     <div id="container" style="height: 618px;">
         <div id="left-div">
-            <div id="editor" style="width:100%;" class=" ace_editor ace-solarized-light" draggable="false"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; top: 28px; left: 123px;"></textarea>
-                <div class="ace_gutter" aria-hidden="true">
-                    <div class="ace_layer ace_gutter-layer ace_folding-enabled">
-                        <div class="ace_gutter-cell ">1<span class="ace_fold-widget ace_start ace_open"></span></div>
-                        <div class="ace_gutter-cell ace_gutter-active-line ">2<span></span></div>
-                    </div>
-                </div>
-                <div class="ace_scroller">
-                    <div class="ace_content">
-                        <div class="ace_layer ace_print-margin-layer">
-                            <div class="ace_print-margin"></div>
-                        </div>
-                        <div class="ace_layer ace_marker-layer">
-                            <div class="ace_bracket ace_start ace_br15"></div>
-                        </div>
-                        <div class="ace_layer ace_text-layer">
-                            <div class="ace_line"><span class="ace_keyword">for</span>
-                                <span class="ace_identifier">i</span> <span class="ace_keyword">in</span> <span class="ace_support ace_function">range</span><span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">10</span>
-                                <span class="ace_paren ace_rparen">)</span><span class="ace_punctuation">:</span></div>
-                            <div class="ace_line"> <span classpan><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">)</span></div>
-                        </div>
-                        <div class="ace_layer ace_marker-layer"></div>
-                        <div class="ace_layer ace_cursor-layer ace_hidden-cursors">
-                            <div class="ace_cursor">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ace_scrollbar ace_scrollbar-v">
-                    <div class="ace_scrollbar-inner"></div>
-                </div>
-                <div class="ace_scrollbar ace_scrollbar-h">
-                    <div class="ace_scrollbar-inner"></div>
-                </div>
-            </div>
+            <div id="editor" style="width:100%;"></div>
         </div>
 
         <div id="right-div">
@@ -60,7 +27,6 @@
                 <div style="float:left">
                     <button id="run">run</button>
                 </div>
-
                 <div style="float:right">
                     <button id="show_console">Python</button>
                     <button id="show_js">Javascript</button>
@@ -70,8 +36,6 @@
                 <textarea id="console" autocomplete="off" cols="60"></textarea>
             </div>
         </div>
-
-
     </div>
 </body>
 
