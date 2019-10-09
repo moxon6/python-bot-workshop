@@ -3,23 +3,21 @@
 
 <head>
     <title>Editor Demo</title>
+    <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
     <script type="text/python3" src="editor.py"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="brython({debug:1})">
     <div class="app">
         <div>
-            <div>
-                <button id="run" class="option-button">run</button>
-                <button id="show_console" class="option-button">Python</button>
-                <button id="show_js" class="option-button">Javascript</button>
-            </div>
+            <button id="execute_button" class="option-button">run</button>
+            <button id="python_output" class="option-button">Python</button>
+            <button id="javascript_output" class="option-button">Javascript</button>
         </div>
         <div id="container">
             <div class="panel">
