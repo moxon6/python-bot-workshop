@@ -15,7 +15,6 @@ body,
 }
 
 .app {
-    padding: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -43,8 +42,8 @@ body,
     flex: 1;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: 5fr 2fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }

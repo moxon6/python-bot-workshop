@@ -46,12 +46,13 @@ def run(editor):
     print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
     return state
 
+# sys.stdout = sys.stderr = ConsoleOutput()
+
 def main():
-    sys.stdout = sys.stderr = ConsoleOutput()
     editor = window.ace.edit("editor")
     editor.setValue(dict(storage).get(Constants.LOCAL_STORAGE_KEY, default_code))
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor))
 
 if __name__ == "__main__":
     import library
-    main();
+    main()
