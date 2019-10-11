@@ -52,4 +52,5 @@ def main():
     editor.setValue(dict(storage).get(Constants.LOCAL_STORAGE_KEY, default_code))
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor))
 
-main();
+if __name__ == "__main__":
+    main();
