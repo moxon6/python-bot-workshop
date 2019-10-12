@@ -1,7 +1,12 @@
 from browser import document, window, html
 import editor
+import sys
+
+from editor import ConsoleOutput
 
 def register_bot(bot_response):
+    sys.stdout = sys.stderr = ConsoleOutput()
+    print("Registering bot...")
     class Message:
         def __init__(self, text, sender):
             self.text = text
@@ -40,3 +45,4 @@ def register_bot(bot_response):
     send.bind("click", lambda *args: message_input.click())
     message_input.bind("keydown", add_entry_return)
     render()
+    print("Bot Registered")
