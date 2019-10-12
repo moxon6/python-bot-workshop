@@ -54,5 +54,4 @@ def main():
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor))
 
 if __name__ == "__main__":
-    import library
     main()

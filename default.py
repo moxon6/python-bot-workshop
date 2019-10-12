@@ -1,2 +1,6 @@
+from library import library
 
-print("Default Code")
+def bot_response(text):
+    return text[::-1]
+
+library(bot_response)
