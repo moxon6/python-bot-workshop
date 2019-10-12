@@ -1,7 +1,7 @@
 from browser import document, window, html
 import editor
 
-def library(bot_response):
+def register_bot(bot_response):
     class Message:
         def __init__(self, text, sender):
             self.text = text

@@ -1,6 +1,6 @@
-from library import library
+from library import register_bot
 
-def bot_response(text):
+def reverser_bot(text):
     return text[::-1]
 
-library(bot_response)
+register_bot(reverser_bot)
