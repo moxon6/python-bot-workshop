@@ -30,6 +30,8 @@ class ConsoleOutput:
 
 def run(editor):
     document[Constants.CONSOLE_TEXTAREA_ID].value = ''
+    wrapper = document['message-input-wrapper']
+    wrapper.innerHTML = wrapper.innerHTML # Quick way to strip event listeners
     src = editor.getValue()
     if storage is not None:
         storage[Constants.LOCAL_STORAGE_KEY] = src
