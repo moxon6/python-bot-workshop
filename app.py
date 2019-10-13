@@ -15,20 +15,16 @@ def reset():
     wrapper = document[Constants.MESSAGE_INPUT_WRAPPER_ID]
     wrapper.innerHTML = wrapper.innerHTML # Quick way to strip event listeners
 
-def run(editor):
+def run(src):
     reset()
-    src = editor.getValue()
-    if storage is not None:
-        storage[Constants.LOCAL_STORAGE_KEY] = src
+    storage[Constants.LOCAL_STORAGE_KEY] = src
     t0 = time.perf_counter()
     exec(src, {'__name__':'__main__'})
-    sys.stdout.flush()
     print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
 
 def main():
     editor = window.ace.edit("editor")
-    editor = window.ace.edit("editor")
-    editor.setTheme("ace/theme/solarized_dark")
+    editor.setTheme("ace/theme/monokai")
     editor.session.setMode("ace/mode/python")
     editor.focus()
     editor.scrollToRow(0)
@@ -38,8 +34,11 @@ def main():
         'highlightActiveLine': False,
         'highlightSelectedWord': True
     })
-    editor.setValue(dict(storage).get(Constants.LOCAL_STORAGE_KEY, default_code))
-    document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor))
+    editor.setValue(dict(storage).get(
+        Constants.LOCAL_STORAGE_KEY,
+        default_code
+    ))
+    document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor.getValue()))
 
 if __name__ == "__main__":
     main()

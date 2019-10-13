@@ -2,63 +2,80 @@
 <html>
 
 <head>
-    <title>Editor Demo</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/chat.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-solarized_dark.js"></script>
-    <script type="text/python3" src="app.py"></script>
+	<title>Editor Demo</title>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/chat.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+	<link rel='stylesheet prefetch'
+		href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"
+		charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
+	<script type="text/python3" src="app.py"></script>
 </head>
 
 <body onload="brython({debug:1})">
-    <div class="app">
+	<div class="app">
 
-        <div id="container">
-            <div class="editor-panel">
-                <div id="editor"></div>
-                <div class="execute_button_container">
-                    <button id="execute_button" class="option-button">
+		<div id="container">
+			<div class="editor-panel">
+				<div id="editor"></div>
+				<div class="execute_button_container">
+					<button id="execute_button" class="option-button">
                         Run
                         <i class="fa fa-play"></i>
                     </button>
-                </div>
-            </div>
+				</div>
+			</div>
 
-            <div class="console-panel">
-                <textarea id="console" readonly autocomplete="off" cols="60"></textarea>
-            </div>
+			<div class="console-panel">
+				<textarea id="console" readonly autocomplete="off" cols="60"></textarea>
+			</div>
 
-            <div class="todolist-panel">
+			<div class="todolist-panel">
 
-                <div id="frame">
-                    <div class="content">
-                        <div class="contact-profile">
-                            <img src="assets/bot.gif" alt="" />
-                            <p>Potato Bot</p>
-                        </div>
-                        <div class="messages">
-                            <ul id="messages-list">
-                            </ul>
-                        </div>
-                        <div class="message-input">
-                            <div id="message-input-wrapper" class="wrap">
-                                <input id="message-input" type="text" placeholder="Write your message..." />
-                                <button id="send" class="submit">
+				<div id="frame">
+					<div class="content">
+						<div class="contact-profile">
+							<img src="assets/bot.gif" alt="" />
+							<p>Potato Bot</p>
+						</div>
+						<div class="messages">
+							<ul id="messages-list">
+								<li class="replies"><img src="assets/human.jpg">
+									<p>Testing</p>
+								</li>
+								<li class="sent"><img src="assets/bot.gif">
+									<p>gnitseT</p>
+								</li>
+								<li class="replies"><img src="assets/human.jpg">
+									<p>This is a test</p>
+								</li>
+								<li class="sent"><img src="assets/bot.gif">
+									<p>tset a si sihT</p>
+								</li>
+							</ul>
+						</div>
+						<div class="message-input">
+							<div id="message-input-wrapper" class="wrap">
+								<input id="message-input" type="text" placeholder="Write your message..." />
+								<button id="send" class="submit">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
