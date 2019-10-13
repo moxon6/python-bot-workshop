@@ -12,6 +12,7 @@ body,
     height: 100%;
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
 }
 
 .app {
@@ -19,8 +20,19 @@ body,
     flex-direction: column;
 }
 
+.execute_button_container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#execute_button {
+    font-size: 30px;
+}
+
 .editor-panel {
     grid-area: 1 / 1 / 2 / 2;
+    position: relative;
 }
 
 .console-panel {
@@ -59,9 +71,8 @@ body,
 }
 
 .option-button {
-    background-color: #0f1b07;
-    border-color: #0f1b07;
-    color: #c6d166;
-    border: 1px solid;
+    background-color: #212020;
+    color: #1ed61e;
+    border: 1px solid black;
     padding: .2em
 }

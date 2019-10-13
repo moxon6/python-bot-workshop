@@ -1,8 +1,7 @@
 from browser import document, window, html
-import editor
 import sys
 
-from editor import ConsoleOutput
+from app import ConsoleOutput
 
 def register_bot(bot_response):
     sys.stdout = sys.stderr = ConsoleOutput()
@@ -26,7 +25,7 @@ def register_bot(bot_response):
 
     def createLI(message):
         return html.LI([
-            html.IMG(src=("human.jpg" if message.sender == "you" else "bot.gif")),
+            html.IMG(src=("assets/human.jpg" if message.sender == "you" else "assets/bot.gif")),
             html.P(message.text)
         ], Class=("replies" if message.sender == "you" else "sent"))
 

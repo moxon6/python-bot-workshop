@@ -4,7 +4,7 @@ import tb as traceback
 from browser import document, window
 from browser.local_storage import storage
 
-default_code = open('default.py').read()
+default_code = open('default_template.py').read()
 
 class Constants:
     LOCAL_STORAGE_KEY = "LOCAL_STORAGE_KEY"
@@ -52,6 +52,17 @@ def run(editor):
 
 def main():
     editor = window.ace.edit("editor")
+    editor = window.ace.edit("editor")
+    editor.setTheme("ace/theme/solarized_dark")
+    editor.session.setMode("ace/mode/python")
+    editor.focus()
+    editor.scrollToRow(0)
+    editor.gotoLine(0)
+    editor.setOptions({
+        'enableLiveAutocompletion': True,
+        'highlightActiveLine': False,
+        'highlightSelectedWord': True
+    })
     editor.setValue(dict(storage).get(Constants.LOCAL_STORAGE_KEY, default_code))
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor))
 
