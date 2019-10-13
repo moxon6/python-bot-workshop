@@ -1,8 +1,11 @@
-from browser import document, window, html
 import sys
-
 from console_output import ConsoleOutput
+
 sys.stdout = sys.stderr = ConsoleOutput()
+
+from browser import document, window, html
+from constants import Constants
+
 
 def register_bot(bot_response):
     print("Registering bot...")

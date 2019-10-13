@@ -1,35 +1,30 @@
 import sys
-import time
-import tb as traceback
-from browser import document, window
-from browser.local_storage import storage
-from constants import Constants
 from console_output import ConsoleOutput
 
 sys.stdout = sys.stderr = ConsoleOutput()
 
+import time
+from browser import document, window
+from browser.local_storage import storage
+from constants import Constants
+
 default_code = open('default_template.py').read()
 
-
-def run(editor):
+def reset():
     document[Constants.CONSOLE_TEXTAREA_ID].value = ''
     wrapper = document[Constants.MESSAGE_INPUT_WRAPPER_ID]
     wrapper.innerHTML = wrapper.innerHTML # Quick way to strip event listeners
+
+def run(editor):
+    reset()
     src = editor.getValue()
     if storage is not None:
         storage[Constants.LOCAL_STORAGE_KEY] = src
-
     t0 = time.perf_counter()
-    try:
-        ns = {'__name__':'__main__'}
-        exec(src, ns)
-        state = 1
-    except Exception as exc:
-        traceback.print_exc(file=sys.stderr)
-        state = 0
+    exec(src, {'__name__':'__main__'})
     sys.stdout.flush()
     print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
-    return state
+
 def main():
     editor = window.ace.edit("editor")
     editor = window.ace.edit("editor")
