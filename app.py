@@ -7,6 +7,7 @@ import time
 from browser import document, window
 from browser.local_storage import storage
 from constants import Constants
+import tb as traceback
 
 default_code = open('default_template.py').read()
 
@@ -19,7 +20,10 @@ def run(src):
     reset()
     storage[Constants.LOCAL_STORAGE_KEY] = src
     t0 = time.perf_counter()
-    exec(src, {'__name__':'__main__'})
+    try:
+        exec(src, {'__name__':'__main__'})
+    except Exception as e:
+        print(traceback.format_exc())
     print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
 
 def main():
