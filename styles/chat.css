@@ -9,40 +9,35 @@ body {
   -webkit-font-smoothing: antialiased
 }
 
-#frame {
-  width: 100%;
-  height: 100%;
+
+.content {
   min-height: 300px;
-  background: #e6eaea
-}
-
-
-#frame .content {
+  background: #e6eaea;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative
 }
 
-#frame .content .contact-profile {
+.content .contact-profile {
   width: 100%;
   height: 60px;
   line-height: 60px;
   background: #f5f5f5
 }
 
-#frame .content .contact-profile img {
+.content .contact-profile img {
   width: 40px;
   border-radius: 50%;
   float: left;
   margin: 9px 12px 0 9px
 }
 
-#frame .content .contact-profile p {
+.content .contact-profile p {
   float: left
 }
 
-#frame .content .messages {
+.content .messages {
   height: auto;
   min-height: calc(100% - 93px);
   max-height: calc(100% - 93px);
@@ -50,16 +45,16 @@ body {
   overflow-x: hidden
 }
 
-#frame .content .messages::-webkit-scrollbar {
+.content .messages::-webkit-scrollbar {
   width: 8px;
   background: 0 0
 }
 
-#frame .content .messages::-webkit-scrollbar-thumb {
+.content .messages::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, .3)
 }
 
-#frame .content .messages ul li {
+.content .messages ul li {
   display: inline-block;
   clear: both;
   float: left;
@@ -68,36 +63,36 @@ body {
   font-size: .9em
 }
 
-#frame .content .messages ul li:nth-last-child(1) {
+.content .messages ul li:nth-last-child(1) {
   margin-bottom: 20px
 }
 
-#frame .content .messages ul li.sent img {
+.content .messages ul li.sent img {
   margin: 6px 8px 0 0
 }
 
-#frame .content .messages ul li.sent p {
+.content .messages ul li.sent p {
   background: #435f7a;
   color: #f5f5f5
 }
 
-#frame .content .messages ul li.replies img {
+.content .messages ul li.replies img {
   float: right;
   margin: 6px 0 0 8px
 }
 
-#frame .content .messages ul li.replies p {
+.content .messages ul li.replies p {
   background: #f5f5f5;
   float: right
 }
 
-#frame .content .messages ul li img {
+.content .messages ul li img {
   width: 22px;
   border-radius: 50%;
   float: left
 }
 
-#frame .content .messages ul li p {
+.content .messages ul li p {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 20px;
@@ -106,18 +101,18 @@ body {
 }
 
 
-#frame .content .message-input {
+.content .message-input {
   position: absolute;
   bottom: 0;
   width: 100%;
   z-index: 99
 }
 
-#frame .content .message-input .wrap {
+.content .message-input {
   position: relative
 }
 
-#frame .content .message-input .wrap input {
+.content .message-input input {
   font-family: proxima-nova, "Source Sans Pro", sans-serif;
   float: left;
   border: none;
@@ -127,11 +122,11 @@ body {
   color: #32465a
 }
 
-#frame .content .message-input .wrap input:focus {
+.content .message-input input:focus {
   outline: 0
 }
 
-#frame .content .message-input .wrap button {
+.content .message-input button {
   float: right;
   border: none;
   width: 50px;
@@ -141,10 +136,10 @@ body {
   color: #f5f5f5
 }
 
-#frame .content .message-input .wrap button:hover {
+.content .message-input button:hover {
   background: #435f7a
 }
 
-#frame .content .message-input .wrap button:focus {
+.content .message-input button:focus {
   outline: 0
 }

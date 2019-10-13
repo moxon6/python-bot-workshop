@@ -9,55 +9,48 @@
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/chat.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"
+		charset="utf-8"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
 	<script type="text/python3" src="app.py"></script>
 </head>
 
 <body onload="brython({debug:1})">
-	<div class="app">
+	<div class="app" id="container">
 
-		<div id="container">
-			<div class="editor-panel">
-				<div id="editor"></div>
-				<div class="execute_button_container">
-					<button id="execute_button" class="option-button">
-                        Run
-                        <i class="fa fa-play"></i>
-                    </button>
-				</div>
+		<div class="editor-panel">
+			<div id="editor"></div>
+			<div class="execute_button_container">
+				<button id="execute_button" class="option-button">
+                    <span>Run</span>
+                    <i class="fa fa-play"></i>
+                </button>
 			</div>
+		</div>
 
-			<div class="console-panel">
-				<textarea id="console" readonly autocomplete="off" cols="60"></textarea>
-			</div>
+		<div class="console-panel">
+			<textarea id="console" readonly autocomplete="off" cols="60"></textarea>
+		</div>
 
-			<div class="todolist-panel">
-
-				<div id="frame">
-					<div class="content">
-						<div class="contact-profile">
-							<img src="assets/bot.gif" alt="" />
-							<p id="bot-name">Bot</p>
-						</div>
-						<div class="messages">
-							<ul id="messages-list">
-							</ul>
-						</div>
-						<div class="message-input">
-							<div id="message-input-wrapper" class="wrap">
-								<input id="message-input" type="text" placeholder="Write your message..." />
-								<button id="send" class="submit">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
+		<div class="todolist-panel content">
+            <div class="contact-profile">
+                <img src="assets/bot.gif" alt="" />
+                <p id="bot-name">Bot</p>
+            </div>
+            <div class="messages">
+                <ul id="messages-list">
+                </ul>
+            </div>
+            <div id="message-input-wrapper" class="message-input">
+                <input id="message-input" type="text" placeholder="Talk to your bot..." />
+                <button id="send" class="submit">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
 		</div>
 	</div>
 </body>
