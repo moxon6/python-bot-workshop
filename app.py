@@ -3,34 +3,17 @@ import time
 import tb as traceback
 from browser import document, window
 from browser.local_storage import storage
+from constants import Constants
+from console_output import ConsoleOutput
+
+sys.stdout = sys.stderr = ConsoleOutput()
 
 default_code = open('default_template.py').read()
 
-class Constants:
-    LOCAL_STORAGE_KEY = "LOCAL_STORAGE_KEY"
-    RUN_BUTTON_ID = 'execute_button'
-    CONSOLE_TEXTAREA_ID = "console"
-
-class ConsoleOutput:
-    encoding = 'utf-8'
-
-    def __init__(self):
-        self.buf = ""
-        self.console = document[Constants.CONSOLE_TEXTAREA_ID]
-
-    def write(self, data):
-        self.buf = str(data)
-
-    def flush(self):
-        self.console.value += self.buf
-        self.buf = ''
-
-    def __len__(self):
-        return len(self.buf)
 
 def run(editor):
     document[Constants.CONSOLE_TEXTAREA_ID].value = ''
-    wrapper = document['message-input-wrapper']
+    wrapper = document[Constants.MESSAGE_INPUT_WRAPPER_ID]
     wrapper.innerHTML = wrapper.innerHTML # Quick way to strip event listeners
     src = editor.getValue()
     if storage is not None:
@@ -47,9 +30,6 @@ def run(editor):
     sys.stdout.flush()
     print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
     return state
-
-# sys.stdout = sys.stderr = ConsoleOutput()
-
 def main():
     editor = window.ace.edit("editor")
     editor = window.ace.edit("editor")

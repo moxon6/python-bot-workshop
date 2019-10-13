@@ -1,10 +1,10 @@
 from browser import document, window, html
 import sys
 
-from app import ConsoleOutput
+from console_output import ConsoleOutput
+sys.stdout = sys.stderr = ConsoleOutput()
 
 def register_bot(bot_response):
-    sys.stdout = sys.stderr = ConsoleOutput()
     print("Registering bot...")
     class Message:
         def __init__(self, text, sender):
@@ -15,7 +15,7 @@ def register_bot(bot_response):
         messages = []
 
     def add_entry():
-        dom_input = document['message-input']
+        dom_input = document[Constants.MESSAGE_INPUT_ID]
         message = Message(dom_input.value, "you")
         dom_input.value = ""
         Messages.messages.append(message)
