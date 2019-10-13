@@ -43,7 +43,12 @@ def main():
         Constants.LOCAL_STORAGE_KEY,
         default_code
     ))
+
+    def reset_to_default():
+        editor.setValue(default_code)
+
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor.getValue()))
+    document[Constants.RESET_BUTTON_ID].bind('click', lambda *args: reset_to_default())
 
 if __name__ == "__main__":
     print("Python initialised...")

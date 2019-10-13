@@ -8,7 +8,7 @@ from constants import Constants
 
 def register_bot(bot, bot_name):
     print("Registering bot...")
-    document[Constants.BOT_NAME].innerHTML = bot_name
+    document[Constants.BOT_NAME_ID].innerHTML = bot_name
     class Message:
         def __init__(self, text, sender):
             self.text = text
