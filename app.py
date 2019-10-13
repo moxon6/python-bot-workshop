@@ -32,7 +32,8 @@ def main():
     editor.setOptions({
         'enableLiveAutocompletion': True,
         'highlightActiveLine': False,
-        'highlightSelectedWord': True
+        'highlightSelectedWord': True,
+        'fontSize': '16px'
     })
     editor.setValue(dict(storage).get(
         Constants.LOCAL_STORAGE_KEY,
@@ -41,4 +42,5 @@ def main():
     document[Constants.RUN_BUTTON_ID].bind('click', lambda *args: run(editor.getValue()))
 
 if __name__ == "__main__":
+    print("Python initialised...")
     main()
