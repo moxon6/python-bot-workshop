@@ -6,9 +6,9 @@ sys.stdout = sys.stderr = ConsoleOutput()
 from browser import document, window, html
 from constants import Constants
 
-
-def register_bot(bot_response):
+def register_bot(bot, bot_name):
     print("Registering bot...")
+    document[Constants.BOT_NAME].innerHTML = bot_name
     class Message:
         def __init__(self, text, sender):
             self.text = text
@@ -22,7 +22,7 @@ def register_bot(bot_response):
         message = Message(dom_input.value, "you")
         dom_input.value = ""
         Messages.messages.append(message)
-        reply = Message(bot_response(message.text), "bot")
+        reply = Message(bot(message.text), "bot")
         Messages.messages.append(reply)
         render()
 
