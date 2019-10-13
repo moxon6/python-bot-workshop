@@ -66,7 +66,7 @@ body {
 }
 
 .content .messages ul li.sent img {
-  margin: 6px 8px 0 0
+  margin: 0px 8px 0 0
 }
 
 .content .messages ul li.sent p {
@@ -76,7 +76,7 @@ body {
 
 .content .messages ul li.replies img {
   float: right;
-  margin: 6px 0 0 8px
+  margin: 0 0 0 8px
 }
 
 .content .messages ul li.replies p {
@@ -85,7 +85,8 @@ body {
 }
 
 .content .messages ul li img {
-  width: 22px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   float: left
 }
