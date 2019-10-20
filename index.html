@@ -3,7 +3,6 @@
    <head>
       <title>Python Bot Playground</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
       <link rel="stylesheet" href="styles/style.css">
       <link rel="stylesheet" href="styles/chat.css">
@@ -44,13 +43,11 @@
          </div>
          <div class="messenger-panel content">
             <div class="contact-profile">
-               <img src="assets/bot.gif" alt="" />
-               <p id="bot-name">Bot</p>
+               <img class="contact-profile-image" src="assets/bot.gif" alt="" />
+               <p class="bot-name" id="bot-name">Bot</p>
             </div>
-            <div class="messages">
-               <ul id="messages-list">
-               </ul>
-            </div>
+            <ul class="messages-list" id="messages-list">
+            </ul>
             <div id="bot-typing">
             </div>
             <div id="message-input-wrapper" class="message-input">
