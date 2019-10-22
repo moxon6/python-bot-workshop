@@ -57,7 +57,7 @@ def register_bot(bot, bot_name):
     send = document['send']
     message_input = document['message-input']
 
-    send.bind("click", lambda *args: message_input.click())
+    send.bind("click", lambda *args: add_entry())
     message_input.bind("keydown", add_entry_return)
     render()
     print("Bot Registered")
