@@ -33,11 +33,15 @@ def register_bot(bot, bot_name):
             render()
         timer.set_timeout(bot_reply, 1000)
 
-    def createLI(message):
+    def createLI(message): 
         return html.LI([
-            html.IMG(src=("assets/human.jpg" if message.sender == "you" else "assets/bot.gif")),
-            html.P(message.text)
-        ], Class=("replies" if message.sender == "you" else "sent"))
+            html.DIV([
+                html.IMG(src=("assets/human.jpg" if message.sender == "you" else "assets/bot.gif")),
+                html.DIV([
+                    html.P(message.text)
+                ], Class="message-container")
+            ], Class="li-container")
+        ], Class=("sent" if message.sender == "you" else "replies"))
 
     def render():
         message_list = document["messages-list"]

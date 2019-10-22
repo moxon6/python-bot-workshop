@@ -47,6 +47,7 @@ body,
 
 .messenger-panel {
     grid-area: 1 / 2 / 3 / 3;
+    display: flex;
 }
 
 #editor {
