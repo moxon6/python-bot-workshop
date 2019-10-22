@@ -78,19 +78,19 @@ body {
     width: calc(100% - 25px);
     font-size: 0.9em;
     display: flex; }
-    .messages-list li .li-container {
-      display: flex;
-      padding: 4px; }
     .messages-list li.sent {
       justify-content: flex-end; }
+      .messages-list li.sent .message-wrapper {
+        display: flex;
+        padding: 4px; }
       .messages-list li.sent .profile-image {
-        margin: 0px 8px 0 0;
         width: 40px;
         min-width: 40px;
         height: 40px;
         border-radius: 50%;
+        margin: 0 0 0 8px;
         order: 1; }
-      .messages-list li.sent .message-container {
+      .messages-list li.sent .message-text-wrapper {
         border-radius: 20px;
         display: flex;
         align-items: center;
@@ -98,18 +98,21 @@ body {
         padding-right: 10px;
         background: #f5f5f5;
         color: #435f7a; }
-        .messages-list li.sent .message-container .message {
+        .messages-list li.sent .message-text-wrapper .message-text {
           padding: 4px;
           margin: 0; }
     .messages-list li.replies {
       justify-content: flex-start; }
+      .messages-list li.replies .message-wrapper {
+        display: flex;
+        padding: 4px; }
       .messages-list li.replies .profile-image {
-        margin: 0px 8px 0 0;
         width: 40px;
         min-width: 40px;
         height: 40px;
-        border-radius: 50%; }
-      .messages-list li.replies .message-container {
+        border-radius: 50%;
+        margin: 0 8px 0 0; }
+      .messages-list li.replies .message-text-wrapper {
         border-radius: 20px;
         display: flex;
         align-items: center;
@@ -117,7 +120,7 @@ body {
         padding-right: 10px;
         background: #435f7a;
         color: #f5f5f5; }
-        .messages-list li.replies .message-container .message {
+        .messages-list li.replies .message-text-wrapper .message-text {
           padding: 4px;
           margin: 0; }
 

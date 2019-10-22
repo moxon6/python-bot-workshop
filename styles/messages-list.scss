@@ -1,19 +1,18 @@
 
 @mixin profile-image {
-  margin: 0px 8px 0 0;
   width: 40px;
   min-width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-@mixin message-container {
+@mixin message-text-wrapper {
   border-radius: 20px;
   display: flex;
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
-  .message {
+  .message-text {
     padding: 4px;
     margin:0;
   }
@@ -51,33 +50,40 @@ $secondary: #435f7a;
     font-size: 0.9em;
     display: flex;
 
-    .li-container {
-      display: flex;
-      padding: 4px;
-    }
+    
 
     &.sent {
       justify-content: flex-end;
+      .message-wrapper {
+        display: flex;
+        padding: 4px;
+      }
       .profile-image {
         @include profile-image();
+        margin: 0 0 0 8px;
         order: 1;
       }
 
-      .message-container {
-        @include message-container();
+      .message-text-wrapper {
+        @include message-text-wrapper();
         background: $primary;
         color: $secondary;
       }
     }
 
     &.replies {
+      .message-wrapper {
+        display: flex;
+        padding: 4px;
+      }
       justify-content: flex-start;
       .profile-image {
         @include profile-image();
+        margin: 0 8px 0 0;
       }
 
-      .message-container {
-        @include message-container();
+      .message-text-wrapper {
+        @include message-text-wrapper();
         background: $secondary;
         color: $primary;
       }

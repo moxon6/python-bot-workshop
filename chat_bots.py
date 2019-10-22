@@ -39,9 +39,9 @@ def register_bot(bot, bot_name):
             html.DIV([
                 html.IMG(src=("assets/human.jpg" if sender else "assets/bot.gif"), Class="profile-image"),
                 html.DIV([
-                    html.P(message.text, Class="message")
-                ], Class="message-container")
-            ], Class="li-container")
+                    html.P(message.text, Class="message-text")
+                ], Class="message-text-wrapper")
+            ], Class="message-wrapper")
         ], Class=("sent" if sender else "replies"))
 
     def render():
