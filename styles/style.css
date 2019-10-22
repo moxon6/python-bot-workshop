@@ -73,29 +73,36 @@ body {
 
 .messages-list {
   height: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden; }
   .messages-list li {
     display: inline-block;
-    margin: 15px 15px 5px 15px;
+    margin: 15px 15px 0px 15px;
     width: calc(100% - 25px);
     font-size: 0.9em; }
     .messages-list li:nth-last-child(1) {
       margin-bottom: 20px; }
     .messages-list li.sent img {
-      margin: 0px 8px 0 0; }
-    .messages-list li.sent p {
-      background: #435f7a;
-      color: #f5f5f5; }
-    .messages-list li.replies img {
-      margin: 0 0 0 8px; }
-    .messages-list li.replies p {
-      background: #f5f5f5; }
-    .messages-list li img {
+      margin: 0px 8px 0 0;
       width: 40px;
       height: 40px;
       border-radius: 50%; }
-    .messages-list li p {
+    .messages-list li.sent p {
+      background: #435f7a;
+      color: #f5f5f5;
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 50%;
+      line-height: 130%; }
+    .messages-list li.replies img {
+      margin: 0 0 0 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; }
+    .messages-list li.replies p {
+      background: #f5f5f5;
+      color: black;
       display: inline-block;
       padding: 10px 15px;
       border-radius: 20px;
