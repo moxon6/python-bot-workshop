@@ -27,7 +27,7 @@ def register_bot(bot, bot_name):
         render()
 
         def bot_reply():
-            # Messages.bot_typing = False
+            Messages.bot_typing = False
             reply = Message(bot(message.text), "bot")
             Messages.messages.append(reply)
             render()
@@ -50,9 +50,11 @@ def register_bot(bot, bot_name):
         message_list <= (createLI(message) for message in Messages.messages)
 
         bot_typing = document["bot-typing"]
-        bot_typing.clear()
         if Messages.bot_typing:
-            bot_typing.innerHTML = "%s is typing..." % bot_name
+            bot_typing.style = { "display": "block"}
+        else:
+            bot_typing.style = { "display": "none"}
+
 
 
     def add_entry_return(ev):

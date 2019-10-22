@@ -28,6 +28,10 @@ $secondary: #435f7a;
   display: flex;
   padding: 10px;
   align-items: center;
+  .bot-typing {
+    height: 20px;
+    align-self: flex-end;
+  }
   .contact-profile-image {
     width: 40px;
     height: 40px;
@@ -44,6 +48,7 @@ $secondary: #435f7a;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  margin: 0;
   li {
     margin: 15px 15px 0px 15px;
     width: calc(100% - 25px);
