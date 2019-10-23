@@ -15,7 +15,7 @@ def register_bot(bot, bot_name):
             self.sender = sender
 
     class Messages:
-        bot_typing = False
+        bot_typing = True
         messages = []
 
     def add_entry():
@@ -32,6 +32,16 @@ def register_bot(bot, bot_name):
             Messages.messages.append(reply)
             render()
         timer.set_timeout(bot_reply, 1000)
+    
+    def create_bot_typing_message():
+        return html.LI([
+            html.DIV([
+                html.IMG(src=("assets/bot.gif"), Class="profile-image"),
+                html.DIV([
+                    html.IMG(src="assets/loading.gif", Class="loading-message")
+                ], Class="loading-message-wrapper")
+            ], Class="message-wrapper")
+        ], Class="replies")
 
     def createLI(message): 
         sender = message.sender == "you"
@@ -49,13 +59,8 @@ def register_bot(bot, bot_name):
         message_list.clear()
         message_list <= (createLI(message) for message in Messages.messages)
 
-        bot_typing = document["bot-typing"]
         if Messages.bot_typing:
-            bot_typing.style = { "display": "block"}
-        else:
-            bot_typing.style = { "display": "none"}
-
-
+            message_list.append(create_bot_typing_message())
 
     def add_entry_return(ev):
         if (ev.keyCode == 13):

@@ -1,3 +1,5 @@
+$primary: #f5f5f5;
+$secondary: #435f7a;
 
 @mixin profile-image {
   width: 40px;
@@ -14,12 +16,11 @@
   padding-right: 10px;
   .message-text {
     padding: 4px;
-    margin:0;
+    margin: 0;
   }
 }
 
-$primary: #f5f5f5;
-$secondary: #435f7a;
+
 
 .contact-profile {
   width: 100%;
@@ -28,10 +29,7 @@ $secondary: #435f7a;
   display: flex;
   padding: 10px;
   align-items: center;
-  .bot-typing {
-    height: 20px;
-    align-self: flex-end;
-  }
+
   .contact-profile-image {
     width: 40px;
     height: 40px;
@@ -41,7 +39,7 @@ $secondary: #435f7a;
   .bot-name {
     margin: 0;
     padding-left: 4px;
-}
+  }
 }
 
 .messages-list {
@@ -55,44 +53,51 @@ $secondary: #435f7a;
     font-size: 0.9em;
     display: flex;
 
-    
-
     &.sent {
       justify-content: flex-end;
       .message-wrapper {
         display: flex;
         padding: 4px;
-      }
-      .profile-image {
-        @include profile-image();
-        margin: 0 0 0 8px;
-        order: 1;
-      }
+        .profile-image {
+          @include profile-image();
+          margin: 0 0 0 8px;
+          order: 1;
+        }
 
-      .message-text-wrapper {
-        @include message-text-wrapper();
-        background: $primary;
-        color: $secondary;
+        .message-text-wrapper {
+          @include message-text-wrapper();
+          background: $primary;
+          color: $secondary;
+        }
       }
     }
 
     &.replies {
+      justify-content: flex-start;
+
       .message-wrapper {
         display: flex;
         padding: 4px;
-      }
-      justify-content: flex-start;
-      .profile-image {
-        @include profile-image();
-        margin: 0 8px 0 0;
+        .profile-image {
+          @include profile-image();
+          margin: 0 8px 0 0;
+        }
+
+        .message-text-wrapper {
+          @include message-text-wrapper();
+          background: $secondary;
+          color: $primary;
+        }
       }
 
-      .message-text-wrapper {
-        @include message-text-wrapper();
-        background: $secondary;
-        color: $primary;
+      .loading-message-wrapper {
+        display: flex;
+        align-items: flex-end;
+        .loading-message {
+          height: 25px;
+          border-radius: 20px;
+        }
       }
     }
-
   }
 }
