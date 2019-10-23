@@ -109,7 +109,6 @@
 .editor-panel {
   position: relative; }
   .editor-panel #editor {
-    float: none;
     width: 100%;
     height: 100%; }
   .editor-panel .button-container {
