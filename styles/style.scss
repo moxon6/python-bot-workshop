@@ -1,5 +1,6 @@
-@import "messages-list.scss";
+@import "messages.scss";
 @import "editor.scss";
+@import "console.scss";
 
 * {
   box-sizing: border-box;
@@ -8,12 +9,10 @@
 }
 
 html,
-body,
-.app {
+body {
   height: 100%;
   padding: 0;
   margin: 0;
-
   overflow: hidden;
 }
 
@@ -32,28 +31,13 @@ body,
 
   .editor-panel {
     grid-area: 1 / 1 / 2 / 2;
-    position: relative;
   }
 
   .console-panel {
     grid-area: 2 / 1 / 3 / 2;
-    font-family: Consolas, monaco, monospace;
-    overflow: hidden;
-    .console {
-      padding: 6px;
-      background-color: #1d1d1d;
-      font-size: 16px;
-      font-weight: 700;
-      width: 100%;
-      height: 100%;
-      float: none;
-      color: #8ae234;
-      overflow: scroll;
-    }
   }
 
   .messenger-panel {
     grid-area: 1 / 2 / 3 / 3;
-    display: flex;
   }
 }

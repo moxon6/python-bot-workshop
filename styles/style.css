@@ -106,40 +106,39 @@
       .messenger-panel .message-input-wrapper button:focus {
         outline: 0; }
 
-#editor {
-  float: none;
-  width: 100%;
-  height: 100%; }
-
-.button-container {
-  position: absolute;
-  right: 0;
-  bottom: 0; }
-
-.option-button {
-  background-color: #212020;
-  color: #1ed61e;
-  border: 1px solid black;
-  padding: 0.2em;
-  font-size: 30px;
-  width: 150px; }
-
-.loader-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #272822; }
-  .loader-container .loader {
-    border: 16px solid #f3f3f3;
-    /* Light grey */
-    border-top: 16px solid #3498db;
-    /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite; }
+.editor-panel {
+  position: relative; }
+  .editor-panel #editor {
+    float: none;
+    width: 100%;
+    height: 100%; }
+  .editor-panel .button-container {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .editor-panel .option-button {
+    background-color: #212020;
+    color: #1ed61e;
+    border: 1px solid black;
+    padding: 0.2em;
+    font-size: 30px;
+    width: 150px; }
+  .editor-panel .loader-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272822; }
+    .editor-panel .loader-container .loader {
+      border: 16px solid #f3f3f3;
+      /* Light grey */
+      border-top: 16px solid #3498db;
+      /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite; }
 
 @keyframes spin {
   0% {
@@ -147,14 +146,27 @@
   100% {
     transform: rotate(360deg); } }
 
+.console-panel {
+  font-family: Consolas, monaco, monospace;
+  overflow: hidden; }
+  .console-panel .console {
+    padding: 6px;
+    background-color: #1d1d1d;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    float: none;
+    color: #8ae234;
+    overflow: scroll; }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0; }
 
 html,
-body,
-.app {
+body {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -173,22 +185,8 @@ body,
   grid-column-gap: 0px;
   grid-row-gap: 0px; }
   .app .editor-panel {
-    grid-area: 1 / 1 / 2 / 2;
-    position: relative; }
+    grid-area: 1 / 1 / 2 / 2; }
   .app .console-panel {
-    grid-area: 2 / 1 / 3 / 2;
-    font-family: Consolas, monaco, monospace;
-    overflow: hidden; }
-    .app .console-panel .console {
-      padding: 6px;
-      background-color: #1d1d1d;
-      font-size: 16px;
-      font-weight: 700;
-      width: 100%;
-      height: 100%;
-      float: none;
-      color: #8ae234;
-      overflow: scroll; }
+    grid-area: 2 / 1 / 3 / 2; }
   .app .messenger-panel {
-    grid-area: 1 / 2 / 3 / 3;
-    display: flex; }
+    grid-area: 1 / 2 / 3 / 3; }
