@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-sass": "node-sass styles/style.scss styles/style.css",
-    "watch-sass": "node-sass styles/style.scss styles/style.css -w",
+    "build-sass": "node-sass styles/main.scss styles/style.css",
+    "watch-sass": "node-sass styles/main.scss styles/style.css -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve ."
   },

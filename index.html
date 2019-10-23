@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Python Bot Playground</title>
-      <link rel="stylesheet" href="styles/style.css">
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-      <script type="text/python3" src="app.py"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
-   </head>
-   <body onload="brython({debug:1})">
-      <div class="app">
-         <div class="editor-panel">
-            <div id="editor">
-                <div class="loader-container">
-                    <div class="loader">
-                    </div>
-                </div>
-            </div>
-            <div class="button-container">
-                <div>
-                    <button id="reset_button" class="option-button">
-                        <span>Reset</span>
-                        <i class="fa fa-refresh"></i>
-                    </button>
-                </div>
-                <div>
-                    <button id="execute_button" class="option-button">
-                        <span>Run</span>
-                        <i class="fa fa-play"></i>
-                    </button>
-                </div>
+
+<head>
+   <title>Python Bot Playground</title>
+   <link rel="stylesheet" href="styles/style.css">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+   <script type="text/python3" src="app.py"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"
+      charset="utf-8"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"
+      charset="utf-8"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
+</head>
+
+<body onload="brython({debug:1})">
+   <div class="app">
+      <div class="editor-panel">
+         <div id="editor">
+            <div class="loader-container">
+               <div class="loader">
+               </div>
             </div>
          </div>
-         <div class="console-panel">
-            <textarea class="console" id="console" readonly autocomplete="off" cols="60"></textarea>
+         <div class="button-container">
+            <div>
+               <button id="reset_button" class="option-button">
+                  <span>Reset</span>
+                  <i class="fa fa-refresh"></i>
+               </button>
+            </div>
+            <div>
+               <button id="execute_button" class="option-button">
+                  <span>Run</span>
+                  <i class="fa fa-play"></i>
+               </button>
+            </div>
          </div>
-         <div class="messenger-panel">
+      </div>
+      <div class="console-panel">
+         <textarea class="console" id="console" readonly autocomplete="off" cols="60"></textarea>
+      </div>
+      <div class="messenger-panel">
+         <div class="messenger-panel-inner">
             <div class="contact-profile">
                <img class="contact-profile-image" src="assets/bot.gif" alt="" />
                <p class="bot-name" id="bot-name">Bot</p>
             </div>
             <ul class="messages-list" id="messages-list">
+               <li class="replies">
+                  <div class="message-wrapper"><img src="assets/bot.gif" class="profile-image">
+                     <div class="message-text-wrapper">
+                        <p class="message-text">No bot is registered. Press Run to register a bot.</p>
+                     </div>
+                  </div>
+               </li>
             </ul>
             <div id="message-input-wrapper" class="message-input-wrapper">
                <input id="message-input" class="message-input" type="text" placeholder="Talk to your bot..." />
@@ -53,5 +65,7 @@
             </div>
          </div>
       </div>
-   </body>
+   </div>
+</body>
+
 </html>

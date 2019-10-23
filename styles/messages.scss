@@ -23,129 +23,139 @@ $dark: #32465a;
 }
 
 .messenger-panel {
-  min-height: 300px;
-  background: $light;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  padding: 5px;
+  background-color: #49483e;
 
-  .contact-profile {
+  .messenger-panel-inner {
+    border-radius: 20px;
+    border: 5px solid #95acef;
+    min-height: 300px;
+    background: $light;
     width: 100%;
-    height: 60px;
-    background: $primary;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
     display: flex;
-    padding: 10px;
-    align-items: center;
+    flex-direction: column;
 
-    .contact-profile-image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      padding: 0;
-    }
-    .bot-name {
-      margin: 0;
-      padding-left: 4px;
-    }
-  }
-
-  .messages-list {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin: 0;
-    li {
-      margin: 15px 15px 0px 15px;
-      width: calc(100% - 25px);
-      font-size: 0.9em;
+    .contact-profile {
+      width: 100%;
+      height: 60px;
+      background: $primary;
       display: flex;
-
-      &.sent {
-        justify-content: flex-end;
-        .message-wrapper {
-          display: flex;
-          padding: 4px;
-          .profile-image {
-            @include profile-image();
-            margin: 0 0 0 8px;
-            order: 1;
-          }
-
-          .message-text-wrapper {
-            @include message-text-wrapper();
-            background: $primary;
-            color: $secondary;
-          }
-        }
-      }
-
-      &.replies {
-        justify-content: flex-start;
-
-        .message-wrapper {
-          display: flex;
-          padding: 4px;
-          .profile-image {
-            @include profile-image();
-            margin: 0 8px 0 0;
-          }
-
-          .message-text-wrapper {
-            @include message-text-wrapper();
-            background: $secondary;
-            color: $primary;
-          }
-        }
-
-        .loading-message-wrapper {
-          display: flex;
-          align-items: flex-end;
-          .loading-message {
-            height: 25px;
-            border-radius: 20px;
-          }
-        }
-      }
-    }
-  }
-
-  .message-input-wrapper {
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    .message-input {
-      font-family: proxima-nova, "Source Sans Pro", sans-serif;
-      border: none;
-      flex: 1;
       padding: 10px;
-      font-size: 1em;
-      color: $dark;
+      align-items: center;
+
+      .contact-profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 0;
+      }
+      .bot-name {
+        margin: 0;
+        padding-left: 4px;
+      }
     }
 
-    .send-message {
-      border: none;
-      width: 50px;
-      padding: 0 0;
-      cursor: pointer;
-      background: $dark;
-      color: $primary;
+    .messages-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin: 0;
+      li {
+        margin: 15px 15px 0px 15px;
+        width: calc(100% - 25px);
+        font-size: 0.9em;
+        display: flex;
+
+        &.sent {
+          justify-content: flex-end;
+          .message-wrapper {
+            display: flex;
+            padding: 4px;
+            .profile-image {
+              @include profile-image();
+              margin: 0 0 0 8px;
+              order: 1;
+            }
+
+            .message-text-wrapper {
+              @include message-text-wrapper();
+              background: $primary;
+              color: $secondary;
+            }
+          }
+        }
+
+        &.replies {
+          justify-content: flex-start;
+
+          .message-wrapper {
+            display: flex;
+            padding: 4px;
+            .profile-image {
+              @include profile-image();
+              margin: 0 8px 0 0;
+            }
+
+            .message-text-wrapper {
+              @include message-text-wrapper();
+              background: $secondary;
+              color: $primary;
+            }
+          }
+
+          .loading-message-wrapper {
+            display: flex;
+            align-items: flex-end;
+            .loading-message {
+              height: 25px;
+              border-radius: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .message-input-wrapper {
+      bottom: 0;
+      width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      &:hover {
-        background: $secondary;
+      .message-input {
+        font-family: proxima-nova, "Source Sans Pro", sans-serif;
+        border: none;
+        flex: 1;
+        padding: 10px;
+        font-size: 1em;
+        color: $dark;
+        &:focus {
+          outline: none;
+        }
       }
 
-      &:focus {
-        outline: 0;
-      }
+      .send-message {
+        border: none;
+        width: 50px;
+        padding: 0 0;
+        cursor: pointer;
+        background: $dark;
+        color: $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          background: $secondary;
+        }
 
-      img {
-        height: 40px;
-        padding: 5px;
+        &:focus {
+          outline: 0;
+        }
+
+        img {
+          height: 40px;
+          padding: 5px;
+        }
       }
     }
   }
