@@ -1,10 +1,6 @@
-import sys
-from console_output import ConsoleOutput
-
-sys.stdout = sys.stderr = ConsoleOutput()
-
 from browser import document, window, html, timer
 from constants import Constants
+from errors import log_errors
 
 def register_bot(bot, bot_name):
     print("Registering bot...")
@@ -18,6 +14,7 @@ def register_bot(bot, bot_name):
         bot_typing = False
         messages = []
 
+    @log_errors
     def add_entry():
         dom_input = document[Constants.MESSAGE_INPUT_ID]
         if len(dom_input.value) is 0:
@@ -26,15 +23,16 @@ def register_bot(bot, bot_name):
         dom_input.value = ""
         Messages.messages.append(message)
         Messages.bot_typing = True
+        reply = Message(bot(message.text), "bot")
         render()
 
+        @log_errors
         def bot_reply():
             Messages.bot_typing = False
-            reply = Message(bot(message.text), "bot")
             Messages.messages.append(reply)
             render()
         timer.set_timeout(bot_reply, 1000)
-    
+
     def create_bot_typing_message():
         return html.LI([
             html.DIV([

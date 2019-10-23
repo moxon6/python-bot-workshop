@@ -17,3 +17,4 @@ class ConsoleOutput:
 
     def __len__(self):
         return len(self.buf)
+
