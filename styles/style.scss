@@ -1,0 +1,43 @@
+@import "messages.scss";
+@import "editor.scss";
+@import "console.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: 5fr 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .editor-panel {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .console-panel {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  .messenger-panel {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+}

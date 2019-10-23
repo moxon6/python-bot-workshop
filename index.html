@@ -2,21 +2,17 @@
 <html>
    <head>
       <title>Python Bot Playground</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
       <link rel="stylesheet" href="styles/style.css">
-      <link rel="stylesheet" href="styles/chat.css">
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+      <script type="text/python3" src="app.py"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"
-         charset="utf-8"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
-      <script type="text/python3" src="app.py"></script>
    </head>
    <body onload="brython({debug:1})">
-      <div class="app" id="container">
+      <div class="app">
          <div class="editor-panel">
             <div id="editor">
                 <div class="loader-container">
@@ -40,21 +36,19 @@
             </div>
          </div>
          <div class="console-panel">
-            <textarea id="console" readonly autocomplete="off" cols="60"></textarea>
+            <textarea class="console" id="console" readonly autocomplete="off" cols="60"></textarea>
          </div>
-         <div class="messenger-panel content">
+         <div class="messenger-panel">
             <div class="contact-profile">
-               <img src="assets/bot.gif" alt="" />
-               <p id="bot-name">Bot</p>
+               <img class="contact-profile-image" src="assets/bot.gif" alt="" />
+               <p class="bot-name" id="bot-name">Bot</p>
             </div>
-            <div class="messages">
-               <ul id="messages-list">
-               </ul>
-            </div>
-            <div id="message-input-wrapper" class="message-input">
-               <input id="message-input" type="text" placeholder="Talk to your bot..." />
-               <button id="send" class="submit">
-               <i class="fa fa-paper-plane"></i>
+            <ul class="messages-list" id="messages-list">
+            </ul>
+            <div id="message-input-wrapper" class="message-input-wrapper">
+               <input id="message-input" class="message-input" type="text" placeholder="Talk to your bot..." />
+               <button id="send-message" class="send-message" class="submit">
+                  <img src="assets/send.svg"></img>
                </button>
             </div>
          </div>
