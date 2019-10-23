@@ -94,17 +94,23 @@
       padding: 10px;
       font-size: 1em;
       color: #32465a; }
-    .messenger-panel .message-input-wrapper button {
+    .messenger-panel .message-input-wrapper .send-message {
       border: none;
       width: 50px;
-      padding: 12px 0;
+      padding: 0 0;
       cursor: pointer;
       background: #32465a;
-      color: #f5f5f5; }
-      .messenger-panel .message-input-wrapper button:hover {
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .messenger-panel .message-input-wrapper .send-message:hover {
         background: #435f7a; }
-      .messenger-panel .message-input-wrapper button:focus {
+      .messenger-panel .message-input-wrapper .send-message:focus {
         outline: 0; }
+      .messenger-panel .message-input-wrapper .send-message img {
+        height: 40px;
+        padding: 5px; }
 
 .editor-panel {
   position: relative; }

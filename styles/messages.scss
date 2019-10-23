@@ -125,19 +125,27 @@ $dark: #32465a;
       color: $dark;
     }
 
-    button {
+    .send-message {
       border: none;
       width: 50px;
-      padding: 12px 0;
+      padding: 0 0;
       cursor: pointer;
       background: $dark;
       color: $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &:hover {
         background: $secondary;
       }
 
       &:focus {
         outline: 0;
+      }
+
+      img {
+        height: 40px;
+        padding: 5px;
       }
     }
   }
