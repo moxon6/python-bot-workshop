@@ -20,6 +20,8 @@ def register_bot(bot, bot_name):
 
     def add_entry():
         dom_input = document[Constants.MESSAGE_INPUT_ID]
+        if len(dom_input.value) is 0:
+            return
         message = Message(dom_input.value, "you")
         dom_input.value = ""
         Messages.messages.append(message)
