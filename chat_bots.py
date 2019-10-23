@@ -15,7 +15,7 @@ def register_bot(bot, bot_name):
             self.sender = sender
 
     class Messages:
-        bot_typing = True
+        bot_typing = False
         messages = []
 
     def add_entry():
@@ -68,7 +68,7 @@ def register_bot(bot, bot_name):
         if (ev.keyCode == 13):
             add_entry()
 
-    send = document['send']
+    send = document['send-message']
     message_input = document['message-input']
 
     send.bind("click", lambda *args: add_entry())

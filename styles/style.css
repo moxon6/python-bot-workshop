@@ -86,16 +86,14 @@
   .messenger-panel .message-input-wrapper {
     bottom: 0;
     width: 100%;
-    position: relative; }
-    .messenger-panel .message-input-wrapper input {
+    display: flex; }
+    .messenger-panel .message-input-wrapper .message-input {
       font-family: proxima-nova, "Source Sans Pro", sans-serif;
       border: none;
-      width: calc(100% - 90px);
-      padding: 11px 32px 10px 8px;
-      font-size: 0.8em;
+      flex: 1;
+      padding: 10px;
+      font-size: 1em;
       color: #32465a; }
-      .messenger-panel .message-input-wrapper input:focus {
-        outline: 0; }
     .messenger-panel .message-input-wrapper button {
       border: none;
       width: 50px;
@@ -108,13 +106,51 @@
       .messenger-panel .message-input-wrapper button:focus {
         outline: 0; }
 
+#editor {
+  float: none;
+  width: 100%;
+  height: 100%; }
+
+.button-container {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.option-button {
+  background-color: #212020;
+  color: #1ed61e;
+  border: 1px solid black;
+  padding: 0.2em;
+  font-size: 30px;
+  width: 150px; }
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272822; }
+  .loader-container .loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0; }
-
-body {
-  background-color: #dae8c0; }
 
 html,
 body,
@@ -127,32 +163,7 @@ body,
 
 .app {
   display: flex;
-  flex-direction: column; }
-
-.button-container {
-  position: absolute;
-  right: 0;
-  bottom: 0; }
-
-.editor-panel {
-  grid-area: 1 / 1 / 2 / 2;
-  position: relative; }
-
-.console-panel {
-  grid-area: 2 / 1 / 3 / 2;
-  font-family: Consolas,monaco,monospace;
-  overflow: hidden; }
-
-.messenger-panel {
-  grid-area: 1 / 2 / 3 / 3;
-  display: flex; }
-
-#editor {
-  float: none;
-  width: 100%;
-  height: 100%; }
-
-#container {
+  flex-direction: column;
   flex: 1;
   height: 100%;
   width: 100%;
@@ -161,46 +172,23 @@ body,
   grid-template-rows: 5fr 2fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px; }
-
-#console {
-  padding: 6px;
-  background-color: #1d1d1d;
-  font-size: 16px;
-  font-weight: 700;
-  width: 100%;
-  height: 100%;
-  float: none;
-  color: #8ae234;
-  overflow: scroll; }
-
-.option-button {
-  background-color: #212020;
-  color: #1ed61e;
-  border: 1px solid black;
-  padding: .2em;
-  font-size: 30px;
-  width: 150px; }
-
-.loader-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #272822; }
-
-.loader {
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid #3498db;
-  /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite; }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
+  .app .editor-panel {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative; }
+  .app .console-panel {
+    grid-area: 2 / 1 / 3 / 2;
+    font-family: Consolas, monaco, monospace;
+    overflow: hidden; }
+    .app .console-panel .console {
+      padding: 6px;
+      background-color: #1d1d1d;
+      font-size: 16px;
+      font-weight: 700;
+      width: 100%;
+      height: 100%;
+      float: none;
+      color: #8ae234;
+      overflow: scroll; }
+  .app .messenger-panel {
+    grid-area: 1 / 2 / 3 / 3;
+    display: flex; }
