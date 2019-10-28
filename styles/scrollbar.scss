@@ -1,0 +1,16 @@
+@mixin withScrollbar() {
+  &::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: #F5F5F5;
+      &-track
+      {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+      }
+      &-thumb
+      {
+        background-color: #32465a;
+      }
+    }
+}
