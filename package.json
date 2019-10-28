@@ -1,24 +1,22 @@
 {
-  "name": "brython-demo",
+  "name": "python-bot-workshop",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Python chat bot workshop. Uses Brython to execute Python in the browser.",
   "scripts": {
     "build-sass": "node-sass styles/main.scss styles/style.css",
     "watch-sass": "node-sass styles/main.scss styles/style.css -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxon6/brython-demo.git"
+    "url": "git+https://github.com/scottlogic/python-bot-workshop.git"
   },
-  "author": "",
+  "author": "Martin Moxon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/moxon6/brython-demo/issues"
+    "url": "https://github.com/scottlogic/python-bot-workshop/issues"
   },
-  "homepage": "https://github.com/moxon6/brython-demo#readme",
+  "homepage": "https://moxon6.github.io/python-bot-workshop/",
   "dependencies": {
     "node-sass": "^4.12.0"
   },
