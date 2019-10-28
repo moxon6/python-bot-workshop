@@ -22,7 +22,6 @@ def register_bot(bot, bot_name):
         message = Message(dom_input.value, "you")
         dom_input.value = ""
         Messages.messages.append(message)
-        Messages.bot_typing = True
         response = bot(message.text)
         if type(response) is str and len(response) > 0:
             reply = Message(response, "bot")
@@ -35,6 +34,13 @@ def register_bot(bot, bot_name):
             Messages.bot_typing = False
             Messages.messages.append(reply)
             render()
+
+        @log_errors
+        def set_bot_typing():
+            Messages.bot_typing = True
+            render()
+        
+        timer.set_timeout(set_bot_typing, 500)
         timer.set_timeout(bot_reply, 1000)
 
     def create_bot_typing_message():
