@@ -63,6 +63,11 @@ $dark: #32465a;
       overflow-y: auto;
       overflow-x: hidden;
       margin: 0;
+      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      @include withScrollbar();
       li {
         margin: 15px 15px 0px 15px;
         width: calc(100% - 25px);

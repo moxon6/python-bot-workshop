@@ -62,6 +62,7 @@ def register_bot(bot, bot_name):
         message_list = document["messages-list"]
         message_list.clear()
         message_list <= (createLI(message) for message in Messages.messages)
+        message_list.scrollTop = message_list.scrollHeight
 
         if Messages.bot_typing:
             message_list.append(create_bot_typing_message())
