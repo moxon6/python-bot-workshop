@@ -23,7 +23,11 @@ def register_bot(bot, bot_name):
         dom_input.value = ""
         Messages.messages.append(message)
         Messages.bot_typing = True
-        reply = Message(bot(message.text), "bot")
+        response = bot(message.text)
+        if type(response) is str and len(response) > 0:
+            reply = Message(response, "bot")
+        else:
+            reply = Message("No Response from bot", "bot")
         render()
 
         @log_errors
