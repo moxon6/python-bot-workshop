@@ -26,6 +26,10 @@ def main():
     editor = window.ace.edit("editor")
     editor.setTheme("ace/theme/monokai")
     editor.session.setMode("ace/mode/python")
+    editor.setValue(dict(storage).get(
+        Constants.LOCAL_STORAGE_KEY,
+        default_code
+    ))
     editor.focus()
     editor.scrollToRow(0)
     editor.gotoLine(0)
@@ -35,10 +39,8 @@ def main():
         'highlightSelectedWord': True,
         'fontSize': '16px'
     })
-    editor.setValue(dict(storage).get(
-        Constants.LOCAL_STORAGE_KEY,
-        default_code
-    ))
+
+    editor.clearSelection()
 
     def reset_to_default():
         editor.setValue(default_code)
