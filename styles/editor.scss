@@ -1,4 +1,6 @@
 
+$scroll-width: 10px;
+
 .editor-panel {
   position: relative;
 
@@ -9,7 +11,7 @@
   
   .button-container {
     position: absolute;
-    right: 0;
+    right: $scroll-width;
     bottom: 0;
   }
   
@@ -49,4 +51,14 @@
       transform: rotate(360deg);
     }
   }
+}
+
+
+.ace_scrollbar.ace_scrollbar-v {
+  @include withScrollbar($scroll-width);
+  width: $scroll-width !important;
+}
+
+.ace_scroller {
+  right: $scroll-width !important;
 }
