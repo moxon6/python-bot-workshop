@@ -66,9 +66,13 @@ $dark: #32465a;
       scroll-behavior: smooth;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+
       @include withScrollbar();
       li {
+        &:first-child {
+          margin-top: auto;
+        }
+
         margin: 15px 15px 0px 15px;
         width: calc(100% - 25px);
         font-size: 0.9em;
