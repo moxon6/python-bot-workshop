@@ -28,7 +28,7 @@ while x < 10:
 ```
 
 ## Comment
-```python
+```
 # This is a comment
 ```
 
