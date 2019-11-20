@@ -1,4 +1,6 @@
-```python
+# Guessing game example
+
+```
 from chat_bots import register_bot
 
 bot_word = "pens"
