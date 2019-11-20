@@ -1,6 +1,9 @@
+$border-width: 2px;
+
 .console-panel {
   font-family: Consolas, monaco, monospace;
   overflow: hidden;
+  position: relative;
   .console {
     padding: 6px;
     background-color: #2f3129;
@@ -12,7 +15,25 @@
     color: #8ae234;
     overflow: auto;
     border: none;
-    border-top: 2px solid;
+    border-top: $border-width solid;
     resize: none;
+  }
+  .docs-links {
+    position: absolute;
+    right: 0;
+    top: $border-width;
+    background-color: #435f7a;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    > a {
+      &:not(:last-child) {
+        padding-bottom: 5px;
+      }
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
   }
 }

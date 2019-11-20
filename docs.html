@@ -3,14 +3,34 @@
 <head>
   <meta charset="utf-8"/>
   <title>Python bot workshop docs</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    #docs-container {
+      display: flex;
+      justify-content: center;
+      background-color: #eaedef;
+    }
+    #docs-container > * {
+      width: 50%;
+      margin: 20px;
+      padding: 10px;
+      background-color: white;
+    }
+  </style>
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+  <div id="docs-container">
+  </div>
   <script>
     const md = document.createElement('zero-md')
     md.src=document.location.hash.slice(1)
-    document.body.appendChild(md)
+    document.querySelector('#docs-container').appendChild(md)
   </script>
 </body>
 </html>
