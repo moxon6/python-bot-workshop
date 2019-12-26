@@ -15,4 +15,4 @@ Built using
 
 
 ## Screenshot
-![](assets/workshop.PNG)
+![](assets/screenshot.png)
