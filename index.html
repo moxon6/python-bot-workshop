@@ -8,18 +8,40 @@
    <script type="text/python3" src="app.py"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython_stdlib.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"
-      charset="utf-8"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"
-      charset="utf-8"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" charset="utf-8"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" charset="utf-8"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/theme-monokai.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
    <script>
       // Workaround to allow brython to handle AttributeErrors correctly
       window.$raise = () => null;
    </script>
+   <script>
+      function configure() {
+         brython({debug:1})
+         
+         document.querySelector("#export_button")
+            .addEventListener("click", () => { 
+               saveAs(
+                  new Blob([ window.ace.edit("editor").getValue() ]),
+                  "bot.py"
+               ) 
+            })
+
+         document.querySelector("#import")
+            .addEventListener("change", function(e) { 
+               const file = e.target.files[0];
+               if (!file) return;
+               
+               const reader = new FileReader();
+               reader.onload = e => window.ace.edit("editor").setValue(e.target.result);                  
+               reader.readAsText(file);
+            })
+      }
+   </script>
 </head>
 
-<body onload="brython({debug:1})">
+<body onload="configure()">
    <div class="app">
       <div class="editor-panel">
          <div id="editor">
@@ -29,6 +51,21 @@
             </div>
          </div>
          <div class="button-container">
+            <div>
+               <button id="import_button" class="option-button">
+                  <label for="import">
+                     <span>Import</span>
+                     <i class="fa fa-upload"></i>
+                  </label>
+                  <input id="import" type="file" onchange="onImportSelected(this)"/>
+               </button>
+            </div>
+            <div>
+               <button id="export_button" class="option-button" onclick="onExportClick()">
+                  <span>Export</span>
+                  <i class="fa fa-download"></i>
+               </button>
+            </div>
             <div>
                <button id="reset_button" class="option-button">
                   <span>Reset</span>
